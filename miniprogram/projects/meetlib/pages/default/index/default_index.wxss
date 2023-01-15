@@ -1,0 +1,85 @@
+@import "../../../style/skin.wxss";
+
+page {
+	background-color: #fff !important;
+}
+
+.main {
+	padding: 0;
+	background-color: #fff !important;
+}
+
+.top {
+	width: 100%;
+}
+
+.top image {
+	width: 100%;
+}
+
+.box {
+	width: 100%;
+	padding: 100rpx 50rpx 20rpx;
+	border-top-right-radius: 45rpx;
+	border-top-left-radius: 45rpx;
+	margin-top: -60rpx;
+	position: relative;
+	background-color: #fff;
+}
+
+.box .inner {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box .inner .item {
+	width: calc((100% - 40rpx) / 2);
+	border: 2rpx solid #ccc;
+	margin-bottom: 30rpx;
+	min-height: 170rpx;
+	border-radius: 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 5rpx 5rpx 20rpx 1rpx rgba(114, 130, 138, 0.2);
+}
+
+.box .inner .item:nth-child(4n+1) {
+	border-color: #83A3E8;
+	background-image: linear-gradient(180deg, #83A3E8, #9ab6f1, #b5c9f5);
+}
+
+.box .inner .item:nth-child(4n+2) {
+	border-color: #ADD5DB;
+	background-image: linear-gradient(180deg, #ADD5DB, #c4dee2, #dae5e7);
+}
+
+.box .inner .item:nth-child(4n+3) {
+	border-color: #D4C67E;
+	background-image: linear-gradient(180deg, #D4C67E, #dfd39b, #ece6c8);
+}
+
+.box .inner .item:nth-child(4n+4) {
+	border-color: #CA94AE;
+	background-image: linear-gradient(180deg, #CA94AE, #d8aec2, #e7c9d8);
+}
+
+.box .inner .item:nth-child(2n+1) {
+	margin-right: 40rpx;
+}
+
+.box .inner .item .ix {
+	font-size: 60rpx;
+	margin-right: 15rpx;
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 10rpx;
+	border-radius: 10rpx;
+}
+
+
+.box .inner .item .title {
+	font-size: 32rpx;
+	font-weight: bold;
+}
