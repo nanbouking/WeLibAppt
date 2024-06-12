@@ -1,0 +1,58 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l load-project"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project"></view>
+
+<view wx:if="{{isLoad}}" class="main padding-project">
+
+	<view class="article-box">
+		<view class="form-box card-project shadow-project">
+			<view class="form-group">
+				<view class="title text-cut">{{meet.MEET_TITLE}}</view>
+			</view>
+			<view class="form-group" bindtap="url" data-type="back">
+				<view class="title text-cut" style="padding-right:0"><text class="icon-calendar margin-right-xxs"></text>{{meet.dayDesc}} <text class="tag mid bg-orange light round margin-right">更改时段</text></view>
+			</view>
+
+		</view>
+
+
+	</view>
+
+	<view class="article-box">
+		<!--multi begin-->
+		<view wx:if="{{meet.MEET_MAX_JOIN_CNT>1}}" class="form-box card-project shadow-project">
+			<view class="form-group">
+				<view class="title text-cut">预约人信息</view>
+			</view>
+			<view class="form-group user-list" wx:for="{{formsList}}" wx:key="k">
+				<view class="left text-cut" wx:if="{{itm.mark=='name'}}" wx:for="{{item}}" wx:key="k1" wx:for-item="itm">{{itm.val}}</view>
+				 
+				<view class="right">
+					<view bindtap="url" data-url="../join_info/meet_join_info?flag=edit&idx={{index}}" class="bg-blue light margin-right-s bg-edit">修改</view>
+					<view bindtap="bindDel" data-idx="{{index}}" class="bg-red light">删除</view>
+
+				</view>
+			</view>
+			<view class="add-line" bindtap="url" data-url="../join_info/meet_join_info">
+				<view wx:if="{{formsList.length==0}}" class="line">+ 添加预约人</view>
+				<view wx:else class="line">+ 继续添加预约人</view>
+			</view>
+		</view>
+		<!--multi END-->
+
+		<!-- form content begin -->
+		<view wx:if="{{meet.MEET_MAX_JOIN_CNT==1}}" class="form-box card-project shadow-project margin-top">
+			<view class="form-group">
+				<view class="line-desc">请您填写资料，带<text class="text-red text-bold">*</text>号为必填项</view>
+			</view>
+			<cmpt-form-show isConfirm="{{true}}" id="form-show" mark="form-show-join" forms="{{meet.myForms}}" isCacheMatch="{{false}}" fields="{{meet.MEET_JOIN_FORMS}}" bind:submit="bindSubmitCmpt" />
+		</view>
+		<!-- form content END. -->
+
+	</view>
+
+
+
+	<button wx:if="{{meet.MEET_MAX_JOIN_CNT>1}}" bindtap="bindSubmitCmpt" class="btn-base btn-project" style="margin-bottom:100rpx;">提交预约</button>
+	<button wx:if="{{meet.MEET_MAX_JOIN_CNT==1}}" bindtap="bindCheckTap" class="btn-base btn-project" style="margin-bottom:100rpx;">提交资料</button>
+
+</view>
